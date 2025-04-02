@@ -36,6 +36,7 @@ node main.js
 ```
 
 🔄 How It Works
+
 Reads wallets from wallet.txt
 
 Performs randomized swaps for each wallet
