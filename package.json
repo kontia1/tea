@@ -1,0 +1,15 @@
+{
+  "name": "tea-swap-bot",
+  "version": "1.0.0",
+  "description": "Automated TEA swapping bot for Uniswap on Tea-Sepolia.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "ethers": "^6.7.0",
+    "fs": "^0.0.1-security"
+  },
+  "author": "kontia1",
+  "license": "MIT"
+}
