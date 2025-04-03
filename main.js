@@ -69,18 +69,24 @@ async function executeSwapsForWallet(wallet) {
     await sleep(10000);
   }
 
-  // **Random delay before next wallet starts**
-  const delayMinutes = Math.floor(Math.random() * (1450 - 1440 + 1)) + 1440;
-  console.log(`⏳ Wallet ${wallet.address} finished swaps. Waiting ${delayMinutes} minutes before next wallet starts...\n`);
-  await sleep(delayMinutes * 60 * 1000);
+  console.log(`✅ Wallet ${wallet.address} completed swaps! Moving to next wallet...\n`);
 }
 
-// Run wallets sequentially instead of in parallel
-async function runWalletsSequentially() {
-  for (const wallet of wallets) {
-    await executeSwapsForWallet(wallet);
+// Function to run all wallets, then wait and repeat
+async function runAllWallets() {
+  while (true) {  // Infinite loop to repeat the process
+    console.log("\n🚀 Starting swaps for all wallets...");
+
+    for (const wallet of wallets) {
+      await executeSwapsForWallet(wallet);
+    }
+
+    // **Wait 1440 - 1450 minutes before repeating**
+    const delayMinutes = Math.floor(Math.random() * (1450 - 1440 + 1)) + 1440;
+    console.log(`⏳ All wallets completed swaps! Waiting ${delayMinutes} minutes before restarting...\n`);
+    await sleep(delayMinutes * 60 * 1000);
   }
 }
 
-// Start swapping process sequentially
-runWalletsSequentially();
+// Start swapping process
+runAllWallets();
