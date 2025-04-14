@@ -83,7 +83,7 @@ async function runAllWallets() {
 
     // **Wait 1440 - 1450 minutes before repeating**
     console.log(`⏳ All wallets completed swaps! Waiting ${delayMinutes} minutes before restarting...\n`);
-    await sleep(3 * 60 * 1000);
+    await sleep(15 * 1000);
   }
 }
 
