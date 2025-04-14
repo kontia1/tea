@@ -39,7 +39,7 @@ async function executeSwapsForWallet(wallet) {
   console.log(`\n🔄 Starting swaps for wallet: ${wallet.address}`);
 
   const tokens = Object.keys(CONTRACTS.UNISWAPTOKENS).filter(t => t !== "WETH");
-  const numSwaps = Math.floor(Math.random() * (110 - 105 + 1)) + 105;
+  const numSwaps = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
 
   for (let i = 1; i <= numSwaps; i++) {
     const tokenName = tokens[Math.floor(Math.random() * tokens.length)];
@@ -82,9 +82,8 @@ async function runAllWallets() {
     }
 
     // **Wait 1440 - 1450 minutes before repeating**
-    const delayMinutes = Math.floor(Math.random() * (1450 - 1440 + 1)) + 1440;
     console.log(`⏳ All wallets completed swaps! Waiting ${delayMinutes} minutes before restarting...\n`);
-    await sleep(delayMinutes * 60 * 1000);
+    await sleep(3 * 60 * 1000);
   }
 }
 
